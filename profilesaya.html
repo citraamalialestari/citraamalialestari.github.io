@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Citra Amalia Lestari</title>
+
+  <style>
+    :root {
+      --bg: #fdecef;      /* Pale pink background */
+      --card: #ffffff;    /* White soft card */
+      --text: #333;       /* Dark soft text */
+      --muted: #6b5a5e;   /* Soft muted brown-pink */
+      --primary: #e8b7c8; /* Soft rose pink */
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 760px;
+      background: var(--card);
+      padding: 40px;
+      border-radius: 24px;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      border: 2px solid var(--primary);
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--primary);
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin: 0;
+      color: var(--text);
+    }
+
+    .lead {
+      margin: 10px 0 25px;
+      font-size: 18px;
+      color: var(--muted);
+    }
+
+    .section-title {
+      margin-top: 40px;
+      font-size: 20px;
+      font-weight: 600;
+      border-left: 4px solid var(--primary);
+      padding-left: 10px;
+      color: var(--text);
+      text-align: left;
+    }
+
+    p {
+      line-height: 1.6;
+      text-align: left;
+      color: var(--text);
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 16px;
+      background: var(--primary);
+      color: white;
+      border-radius: 10px;
+      font-size: 15px;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    input[type="file"] {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- FOTO PROFIL -->
+    <img id="preview" src="foto.jpg" alt="Foto Profil" class="profile-img" />
+
+    <h1>Citra Amalia Lestari</h1>
+    <p class="lead">Mahasiswa Sistem Informasi — Unika Atma Jaya Jakarta</p>
+
+    <p>
+      Halo! Saya <strong>Citra Amalia Lestari</strong>, mahasiswa Sistem Informasi angkatan 2023.
+      Saya tertarik pada UI/UX, web development sederhana, dan pembuatan prototype aplikasi
+      yang mendukung produktivitas mahasiswa. Saya suka belajar hal baru secara bertahap, terutama
+      yang berkaitan dengan teknologi dan desain antarmuka.
+    </p>
+
+    <h2 class="section-title">Tentang Saya</h2>
+    <p>
+      Saya sering mengeksplorasi desain yang minimalis, bersih, dan nyaman dilihat.
+      Walaupun kemampuan coding saya belum terlalu advance, saya menikmati prosesnya dan
+      perlahan membangun proyek-proyek kecil untuk meningkatkan kemampuan saya.
+    </p>
+
+    <!-- UPLOAD FOTO -->
+    <h2 class="section-title">Upload Foto Profil</h2>
+    <input type="file" id="uploadFoto" accept="image/*" />
+
+    <h2 class="section-title">Kontak</h2>
+    <p>Email saya:</p>
+
+    <a class="btn" href="mailto:citraamalialestari0315@gmail.com">
+      citraamalialestari0315@gmail.com
+    </a>
+
+    <p style="margin-top:20px;">GitHub:  
+      <a href="https://github.com/citraamalialestari" target="_blank">
+        github.com/citraamalialestari
+      </a>
+    </p>
+
+  </div>
+
+  <script>
+    const uploadFoto = document.getElementById('uploadFoto');
+    const preview = document.getElementById('preview');
+
+    uploadFoto.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          preview.src = e.target.result; // Ganti foto preview
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+  </script>
+
+</body>
+
+</html>
